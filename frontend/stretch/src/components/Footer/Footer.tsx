@@ -7,7 +7,7 @@ import {
   FiInstagram,
   FiFacebook,
 } from "react-icons/fi";
-import { FaWhatsapp, FaTelegram, FaVk } from "react-icons/fa";
+import { FaWhatsapp, FaTelegram, FaVk, FaGithub } from "react-icons/fa";
 import styles from "./Footer.module.scss";
 
 const Footer: React.FC = () => {
@@ -183,7 +183,17 @@ const Footer: React.FC = () => {
         <div className={styles.copyright}>
           <p>© {currentYear} Натяжка 24. Все права защищены.</p>
           <p className={styles.developer}>
-            Разработано с ❤️ для вашего комфорта
+            Разработано с ❤️ для вашего комфорта{" "}
+            <a 
+              href="https://github.com/Ssatanaxxx/CelingShop.kz/tree/main" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.githubLink}
+            >
+              <span className={styles.githubText}>by</span>
+              <FaGithub className={styles.githubIcon} />
+              <span className={styles.githubGlow}></span>
+            </a>
           </p>
         </div>
       </div>
