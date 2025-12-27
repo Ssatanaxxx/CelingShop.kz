@@ -1,23 +1,34 @@
-FROM node:18-alpine
-
-WORKDIR /app
-
-# 1. Копируем package.json
-COPY package*.json ./
-
-# 2. Устанавливаем ВСЕ зависимости
+# ========== Р‘Р­РљР•РќР” ==========
+FROM node:20-alpine AS backend
+WORKDIR /app/backend
+COPY backend/package*.json ./
 RUN npm ci
-
-# 3. Копируем исходный код
-COPY . .
-
-# 4. Компилируем TypeScript
+COPY backend/ .
 RUN npm run build
 
-# 5. Удаляем devDependencies для уменьшения размера
-RUN npm prune --production
+# ========== Р¤Р РћРќРўР•РќР” ==========
+FROM node:20-alpine AS frontend
+WORKDIR /app/frontend
+COPY frontend/package*.json ./
+RUN npm install
+COPY frontend/ .
+RUN npm run build
+
+# ========== Р¤РРќРђР›Р¬РќР«Р™ РћР‘Р РђР— ==========
+FROM node:20-alpine
+WORKDIR /app
+
+# РљРѕРїРёСЂСѓРµРј СЃРѕР±СЂР°РЅРЅС‹Р№ Р±СЌРєРµРЅРґ
+COPY --from=backend /app/backend/dist ./backend-dist
+COPY --from=backend /app/backend/package.json ./
+COPY --from=backend /app/backend/node_modules ./node_modules
+
+# РљРѕРїРёСЂСѓРµРј СЃРѕР±СЂР°РЅРЅС‹Р№ С„СЂРѕРЅС‚РµРЅРґ
+COPY --from=frontend /app/frontend/dist ./frontend-dist
+
+# РљРѕРїРёСЂСѓРµРј С„Р°Р№Р»С‹ СЃРµСЂРІРµСЂР° РґР»СЏ СЂР°Р·РґР°С‡Рё СЃС‚Р°С‚РёРєРё
+COPY server.js ./
+COPY package.json ./
 
 EXPOSE 3000
-
-# ИСПРАВЛЕНО: server.js вместо index.js
-CMD ["node", "dist/server.js"]
+CMD ["node", "server.js"]

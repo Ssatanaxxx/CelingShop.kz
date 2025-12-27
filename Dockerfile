@@ -1,33 +1,35 @@
-# Корневой Dockerfile для Render
-FROM node:18-alpine as backend
+# ===== BACKEND =====
+FROM node:20-alpine AS backend
 WORKDIR /app/backend
 COPY backend/package*.json ./
 RUN npm ci
-COPY backend/ .
-RUN npm run build
-RUN npm prune --production
+COPY backend ./
+RUN npm run build # Транспиляция TS
 
-FROM node:18-alpine as frontend
+# ===== FRONTEND =====
+FROM node:20-alpine AS frontend
 WORKDIR /app/frontend
 COPY frontend/package*.json ./
-RUN npm install
-COPY frontend/ .
+RUN npm ci
+COPY frontend ./
 ARG VITE_API_URL=/api
-ENV VITE_API_URL=${VITE_API_URL}
+ENV VITE_API_URL=$VITE_API_URL
 RUN npm run build
 
-FROM nginx:alpine
-# Копируем собранный фронтенд
-COPY --from=frontend /app/frontend/dist /usr/share/nginx/html
-# Копируем nginx конфиг с прокси
-COPY frontend/nginx.conf /etc/nginx/conf.d/default.conf
-# Копируем бэкенд
-COPY --from=backend /app/backend /usr/share/nginx/backend
-# Создаем entrypoint скрипт
-RUN echo '#!/bin/sh' > /entrypoint.sh && \
-    echo 'cd /usr/share/nginx/backend && node dist/server.js &' >> /entrypoint.sh && \
-    echo 'nginx -g "daemon off;"' >> /entrypoint.sh && \
-    chmod +x /entrypoint.sh
+# ===== FINAL =====
+FROM node:20-alpine
+WORKDIR /app
 
-EXPOSE 80
-CMD ["/entrypoint.sh"]
+# backend
+COPY --from=backend /app/backend/dist ./backend/dist
+COPY --from=backend /app/backend/package*.json ./backend/
+RUN cd backend && npm ci --omit=dev
+
+# frontend dist
+COPY --from=frontend /app/frontend/dist ./frontend/dist
+
+# server
+COPY server.js ./
+
+EXPOSE 3000
+CMD ["node", "server.js"]
