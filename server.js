@@ -8,11 +8,13 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 app.use(express.static(path.join(__dirname, "frontend/dist")));
-app.use("/api", (req, res) => res.json({ ok: true }));
+
+import backend from "./backend/dist/server.js";
+app.use("/api", backend);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "frontend/dist", "index.html"));
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log("🚀", PORT));
+app.listen(PORT, () => console.log("🚀 Server on", PORT));
