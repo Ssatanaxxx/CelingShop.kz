@@ -1,5 +1,6 @@
-export const API_URL = "http://localhost:3000/api";
+import config from './config';
 
+export const API_URL = config.apiUrl;
 // Типы для TypeScript
 export interface Service {
   id: number;

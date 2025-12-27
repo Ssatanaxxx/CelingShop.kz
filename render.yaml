@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: stretch-ceilings
+    env: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: VITE_API_URL
+        value: /api
+    healthCheckPath: /api/health

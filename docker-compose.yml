@@ -1,0 +1,24 @@
+﻿version: '3.8'
+
+services:
+  frontend:
+    build: 
+      context: ./frontend
+      args:
+        VITE_API_URL: /api
+    container_name: stretch-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    container_name: stretch-backend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    restart: unless-stopped
