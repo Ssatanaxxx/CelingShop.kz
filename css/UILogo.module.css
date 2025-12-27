@@ -1,0 +1,30 @@
+.logo {
+  display: block;
+  height: auto;
+  width: 100px;
+  max-width: 100%;
+  object-fit: contain;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+@media (max-width: 992px) {
+  .logo {
+    width: 140px;
+  }
+}
+@media (max-width: 768px) {
+  .logo {
+    width: 120px;
+  }
+}
+@media (max-width: 480px) {
+  .logo {
+    width: 100px;
+  }
+}
+.logo:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+.logo:active {
+  transform: translateY(0);
+}/*# sourceMappingURL=UILogo.module.css.map */

@@ -1,0 +1,67 @@
+@import "../../../styles/variables/colors";
+
+.ctaSection {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.ctaContent {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ctaText {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+
+  strong {
+    color: var(--black);
+  }
+}
+
+.ctaPrice {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--yellow);
+  margin-top: 0.5rem;
+
+  @media (max-width: 321px) {
+    font-size: 1.4rem;
+  }
+}
+
+.ctaButton {
+  background-color: var(--yellow);
+  color: var(--black);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  &:hover {
+    background-color: darken(#ffd400, 8%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 212, 0, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.ctaIcon {
+  transition: transform 0.3s;
+
+  .ctaButton:hover & {
+    transform: translateX(4px);
+  }
+}

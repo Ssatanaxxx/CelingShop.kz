@@ -1,0 +1,480 @@
+@charset "UTF-8";
+.contacts {
+  background-color: white;
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 15px;
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
+}
+@media (max-width: 375px) {
+  .container {
+    padding-bottom: 40px;
+  }
+}
+
+.header {
+  padding-top: 80px;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+@media (max-width: 768px) {
+  .header {
+    padding-top: 60px;
+    margin-bottom: 2rem;
+  }
+}
+
+.title {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+@media (max-width: 992px) {
+  .title {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.75rem;
+  }
+}
+
+.highlight {
+  color: var(--yellow);
+  position: relative;
+}
+.highlight::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--yellow);
+  border-radius: 2px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .subtitle {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+@media (max-width: 992px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Общие стили для секций */
+.sectionTitle {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--black);
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+.sectionTitle::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--yellow);
+}
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 1.3rem;
+    margin-bottom: 1.25rem;
+  }
+}
+
+/* Левая часть - контактная информация */
+.leftSection .contactCards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contactCard {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  background: var(--gray);
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+.contactCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+@media (max-width: 768px) {
+  .contactCard {
+    padding: 1rem;
+    gap: 1rem;
+  }
+}
+
+.contactIcon {
+  font-size: 1.25rem;
+  color: var(--yellow);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background-color: rgba(255, 212, 0, 0.1);
+  border-radius: 50%;
+}
+@media (max-width: 768px) {
+  .contactIcon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+}
+
+.contactContent {
+  flex: 1;
+}
+
+.contactTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.375rem;
+  color: var(--black);
+}
+@media (max-width: 768px) {
+  .contactTitle {
+    font-size: 0.95rem;
+  }
+}
+
+.contactLink {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--black);
+  text-decoration: none;
+  transition: color 0.3s;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.contactLink:hover {
+  color: var(--yellow);
+}
+@media (max-width: 768px) {
+  .contactLink {
+    font-size: 1rem;
+  }
+}
+
+.contactText {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 0.25rem;
+}
+@media (max-width: 768px) {
+  .contactText {
+    font-size: 1rem;
+  }
+}
+
+.contactDetails {
+  color: #666;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .contactDetails {
+    font-size: 0.8rem;
+  }
+}
+
+/* Правая часть */
+.rightSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+@media (max-width: 992px) {
+  .rightSection {
+    gap: 2rem;
+  }
+}
+
+/* Социальные сети */
+.socialSection .socialSubtitle {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+}
+@media (max-width: 768px) {
+  .socialSection .socialSubtitle {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.socialLinks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.875rem;
+}
+@media (max-width: 576px) {
+  .socialLinks {
+    grid-template-columns: 1fr;
+  }
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.25rem;
+  background: var(--gray);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--black);
+  transition: all 0.3s;
+  font-weight: 500;
+}
+.socialLink:hover {
+  background-color: var(--social-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.socialLink:hover .socialIcon {
+  color: white;
+}
+@media (max-width: 768px) {
+  .socialLink {
+    padding: 0.75rem 1rem;
+  }
+}
+
+.socialIcon {
+  font-size: 1.25rem;
+  color: var(--social-color);
+  transition: color 0.3s;
+}
+@media (max-width: 768px) {
+  .socialIcon {
+    font-size: 1.1rem;
+  }
+}
+
+.socialLabel {
+  font-size: 0.9rem;
+}
+@media (max-width: 768px) {
+  .socialLabel {
+    font-size: 0.85rem;
+  }
+}
+
+/* Карта */
+.mapSection .mapPlaceholder {
+  background: var(--gray);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .mapSection .mapPlaceholder {
+    padding: 1.25rem;
+    min-height: 160px;
+  }
+}
+
+.mapContent .mapIcon {
+  font-size: 2.5rem;
+  color: var(--yellow);
+  margin-bottom: 0.875rem;
+}
+@media (max-width: 768px) {
+  .mapContent .mapIcon {
+    font-size: 2rem;
+  }
+}
+.mapContent .mapAddress {
+  color: #666;
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+}
+@media (max-width: 768px) {
+  .mapContent .mapAddress {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.mapButton {
+  background-color: var(--yellow);
+  color: var(--black);
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+.mapButton:hover {
+  background-color: #e6bf00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 212, 0, 0.3);
+}
+@media (max-width: 768px) {
+  .mapButton {
+    padding: 0.625rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Призыв к действию */
+.callToAction .callToActionCard {
+  background: var(--black);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .callToAction .callToActionCard {
+    padding: 1.25rem;
+  }
+}
+
+.callToActionTitle {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--white);
+}
+@media (max-width: 768px) {
+  .callToActionTitle {
+    font-size: 1.1rem;
+  }
+}
+
+.callToActionText {
+  color: #aaa;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+}
+@media (max-width: 768px) {
+  .callToActionText {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.primaryContact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--yellow);
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 212, 0, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+.primaryContact:hover {
+  background: rgba(255, 212, 0, 0.2);
+  transform: translateY(-2px);
+  color: #ffea00;
+}
+@media (max-width: 768px) {
+  .primaryContact {
+    font-size: 1rem;
+    padding: 0.625rem 1.25rem;
+  }
+}
+
+.phoneNumber {
+  font-size: inherit;
+}
+
+/* Адаптивность для очень маленьких экранов */
+@media (max-width: 480px) {
+  .header {
+    padding-top: 50px;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .subtitle {
+    font-size: 0.9rem;
+  }
+  .content {
+    gap: 1.5rem;
+  }
+  .contactCard {
+    flex-direction: column;
+    text-align: center;
+  }
+  .contactIcon {
+    margin: 0 auto;
+  }
+  .rightSection {
+    gap: 1.5rem;
+  }
+  .socialLinks {
+    gap: 0.625rem;
+  }
+  .primaryContact {
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+  }
+}
+@media (max-width: 360px) {
+  .sectionTitle {
+    font-size: 1.1rem;
+  }
+  .contactLink,
+  .contactText {
+    font-size: 0.95rem;
+  }
+  .socialLabel {
+    font-size: 0.8rem;
+  }
+  .mapButton {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.75rem;
+  }
+}/*# sourceMappingURL=Contacts.module.css.map */
