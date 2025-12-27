@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../frontend/stretch/src/components/layout/Container.module.scss"],"names":[],"mappings":"AAAA;EACE;EACA;EACA;EACA;;AAEA;EANF;IAOI;;;AAGF;EAVF;IAWI","file":"Container.module.css"}
+{"version":3,"sourceRoot":"","sources":["../frontend/src/components/layout/Container.module.scss"],"names":[],"mappings":"AAAA;EACE;EACA;EACA;EACA;;AAEA;EANF;IAOI;;;AAGF;EAVF;IAWI","file":"Container.module.css"}

@@ -104,7 +104,7 @@
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 .serviceCard:hover .serviceButton {
-  background-color: rgb(214.2, 178.08, 0);
+  background-color: rgba(255, 212, 0, 0.8);
 }
 
 .serviceHeader {
