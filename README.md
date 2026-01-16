@@ -21,7 +21,7 @@
 
 ## 🚀 Демо
 
-**[🌐 Живая демо-версия](https://stretch-ceilings-demo.vercel.app)**
+**[🌐 Живая демо-версия][(https://stretch-ceilings-demo.vercel.app)](https://ceiling24shop.vercel.app/)**
 
 **Тестовые данные для калькулятора:**
 - Площадь: 15 м²
