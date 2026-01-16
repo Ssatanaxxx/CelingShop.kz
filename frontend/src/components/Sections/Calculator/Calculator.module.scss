@@ -363,6 +363,10 @@
   display: flex;
   flex-direction: column;
   gap: 0.875rem;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 8px;
+  
 }
 
 .extraItem {
