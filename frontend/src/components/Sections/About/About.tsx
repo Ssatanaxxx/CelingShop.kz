@@ -49,7 +49,7 @@ const About: React.FC<{ id: string }> = ({ id }) => {
       <div className="container">
         <div className={styles.header}>
           <h2 className={styles.title}>
-            Мы работаем честно и профессионально{" "}
+            Если бы мне дали власть, я бы сделал многое{" "}
             <span className={styles.highlight}>без лишних обещаний</span>
           </h2>
           <p className={styles.subtitle}>
