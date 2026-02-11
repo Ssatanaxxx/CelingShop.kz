@@ -19,6 +19,7 @@ export const getStats = () => {
   console.log(`Всего заявок: ${orders.length}`);
   console.log(`Новых: ${orders.filter(o => o.status === 'new').length}`);
   console.log(`Общая сумма: ${orders.reduce((sum, o) => sum + o.calculationData.totalPrice, 0)} KZT`);
+  console.log(`Итоговое значение`);
 };
 
 // Запуск из командной строки
